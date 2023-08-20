@@ -21,10 +21,12 @@ from sklearn.pipeline import Pipeline
 from sklearn.base import BaseEstimator, TransformerMixin
 from scipy.stats import chi2_contingency
 from category_encoders import WOEEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.metrics import accuracy_score
+ 
 
-
-
-!pip install category_encoders
 
 loan_data = pd.read_csv('data.csv')
 
@@ -245,9 +247,6 @@ print(y_train.shape)
 print(X_test.shape)
 print(y_test.shape)
 
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 
 # define the columns to be preprocessed
@@ -271,7 +270,6 @@ print(y_train.shape)
 print(X_test.shape)
 print(y_test.shape)
 
-from sklearn.metrics import accuracy_score
 
 # make predictions on the test set
 y_pred = pipeline.predict(X_test)
